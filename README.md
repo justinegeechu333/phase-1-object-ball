@@ -2,7 +2,7 @@
 
 ## Learning Goals
 
-Hello
+Hello, world!
 
 - Practice building nested objects
 - Practice iterating over nested objects
