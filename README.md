@@ -2,6 +2,8 @@
 
 ## Learning Goals
 
+Hello
+
 - Practice building nested objects
 - Practice iterating over nested objects
 
@@ -123,8 +125,8 @@ function inside of our `homeTeamName` function and operate on the object:
 
 ```js
 function homeTeamName() {
-  let object = gameObject();
-  return object["home"]["teamName"];
+	let object = gameObject();
+	return object['home']['teamName'];
 }
 
 console.log(homeTeamName());
@@ -139,7 +141,7 @@ programs later. One-liners are not always better!
 
 ```js
 function homeTeamName() {
-  return gameObject()["home"]["teamName"];
+	return gameObject()['home']['teamName'];
 }
 
 console.log(homeTeamName());
@@ -195,8 +197,8 @@ Chrome's dev tools to debug our program.
 ```html
 <h2>JavaScript Objectball</h2>
 <p>
-  Open your Chrome dev tools to see console output and trigger the debugger to
-  catch.
+	Open your Chrome dev tools to see console output and trigger the debugger to
+	catch.
 </p>
 
 <script src="./src/00-objectball.js"></script>
@@ -223,7 +225,7 @@ Notice, the program will only ever stop if we have the dev tools open.
 let x = 99;
 let y = 42;
 debugger;
-console.log("x:", x);
+console.log('x:', x);
 ```
 
 - Look at the Sources pane to see your source code and see where the debugger
@@ -249,10 +251,10 @@ There are three ways to iterate through objects in JavaScript:
   the string way)
 
 ```js
-let oo = { foo: 42, bar: 83, "key w/ spaces": true };
-console.log(oo["foo"]);
-console.log(oo["bar"]);
-console.log(oo["key w/ spaces"]);
+let oo = { foo: 42, bar: 83, 'key w/ spaces': true };
+console.log(oo['foo']);
+console.log(oo['bar']);
+console.log(oo['key w/ spaces']);
 
 console.log(oo.foo);
 console.log(oo.bar);
@@ -267,8 +269,8 @@ through brackets:
 ```js
 let oo = { foo: 42, bar: 83, baz: 79 };
 for (let key in oo) {
-  let value = oo[key];
-  console.log("key:", key, "value:", value);
+	let value = oo[key];
+	console.log('key:', key, 'value:', value);
 }
 ```
 
@@ -281,9 +283,9 @@ for (let key in oo) {
 
 ```js
 let oo = { foo: 42, bar: 83, baz: 79 };
-console.log("   Object.keys(oo) =>", Object.keys(oo));
-console.log(" Object.values(oo) =>", Object.values(oo));
-console.log("Object.entries(oo) =>", Object.entries(oo));
+console.log('   Object.keys(oo) =>', Object.keys(oo));
+console.log(' Object.values(oo) =>', Object.values(oo));
+console.log('Object.entries(oo) =>', Object.entries(oo));
 ```
 
 ```txt
@@ -309,25 +311,25 @@ through your program bit by bit without adding `debugger` keywords everywhere.
 ```js
 // src/02-advanced-debug.js
 function goodPractices() {
-  let game = gameObject();
-  for (let gameKey in game) {
-    // are you ABSOLUTELY SURE what 'gameKey' is?
-    // use the debugger to find out!
-    debugger;
-    let teamObj = game[gameKey];
-    for (let teamKey in teamObj) {
-      // are you ABSOLUTELY SURE what 'teamKey' is?
-      // use debugger to find out!
-      debugger;
+	let game = gameObject();
+	for (let gameKey in game) {
+		// are you ABSOLUTELY SURE what 'gameKey' is?
+		// use the debugger to find out!
+		debugger;
+		let teamObj = game[gameKey];
+		for (let teamKey in teamObj) {
+			// are you ABSOLUTELY SURE what 'teamKey' is?
+			// use debugger to find out!
+			debugger;
 
-      // what is 'data' at each loop through out this block?
-      // when will the following line of code work and when will it break?
-      let data = teamObj.player;
-      for (let key in data) {
-        debugger;
-      }
-    }
-  }
+			// what is 'data' at each loop through out this block?
+			// when will the following line of code work and when will it break?
+			let data = teamObj.player;
+			for (let key in data) {
+				debugger;
+			}
+		}
+	}
 }
 ```
 
